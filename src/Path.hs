@@ -22,6 +22,10 @@ module Path
   ,Rel
   ,File
   ,Dir
+  ,AbsFile
+  ,AbsDir
+  ,RelFile
+  ,RelDir
    -- * Parsing
   ,parseAbsDir
   ,parseRelDir
@@ -112,6 +116,11 @@ data PathParseException
   | Couldn'tStripPrefixDir FilePath FilePath
   deriving (Show,Typeable)
 instance Exception PathParseException
+
+type AbsFile = Path Abs File
+type AbsDir  = Path Abs Dir
+type RelFile = Path Rel File
+type RelDir  = Path Rel Dir
 
 --------------------------------------------------------------------------------
 -- Parsers
